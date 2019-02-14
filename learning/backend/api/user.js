@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt-nodejs')
 
 module.exports = app => {
-    const{ existsOrError, notExistsOrError, equalsOrError } = app.api.validation
+    const { existsOrError, notExistsOrError, equalsOrError } = app.api.validation
 
     const encryptPassword = password => {
         const salt = bcrypt.genSaltSync(10)
@@ -18,14 +18,15 @@ module.exports = app => {
         try {
             existsOrError(user.name, 'Nome não informado')
             existsOrError(user.email, 'E-mail não informado')
-            existsOrError(user.password, 'Senha não informada')
-            existsOrError(user.confirmPassword, 'Confirmação de senha inválida')
-            equalsOrError(user.password, user.confirmPassword, 'Senhas não conferem')
+            existsOrError(user.password, 'Palavra-Passe não informada')
+            existsOrError(user.confirmPassword, 'Confirmação de Palavra-Passe inválida')
+            equalsOrError(user.password, user.confirmPassword,
+                'Palavras-Passe não conferem')
 
             const userFromDB = await app.db('users')
                 .where({ email: user.email }).first()
             if(!user.id) {
-                notExistsOrError(userFromDB, 'Utilizador já cadastrado!')
+                notExistsOrError(userFromDB, 'Utilizador já cadastrado')
             }
         } catch(msg) {
             return res.status(400).send(msg)
@@ -73,8 +74,8 @@ module.exports = app => {
                 .where({ userId: req.params.id })
             notExistsOrError(articles, 'Utilizador possui artigos.')
 
-            const rowsUpdates = await app.db('users')
-                .update({ deletedAt: new Date() })
+            const rowsUpdated = await app.db('users')
+                .update({deletedAt: new Date()})
                 .where({ id: req.params.id })
             existsOrError(rowsUpdated, 'Utilizador não foi encontrado.')
 

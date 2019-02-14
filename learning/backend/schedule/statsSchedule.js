@@ -23,7 +23,7 @@ module.exports = app => {
         const changeArticles = !lastStat || stat.articles !== lastStat.articles
 
         if(changeUsers || changeCategories || changeArticles) {
-            stat.save().then(() => console.log('[Stats] Estatíticas atualizadas!'))
+            stat.save().then(() => console.log('[Stats] Estatísticas atualizadas!'))
         }
     })
 }
