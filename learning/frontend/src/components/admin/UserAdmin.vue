@@ -8,7 +8,7 @@
                         <b-form-input id="user-name" type="text"
                             v-model="user.name" required
                             :readonly="mode === 'remove'"
-                            placeholder="Informe o Nome do Utilizador..." />
+                            placeholder="Informe o Nome do Utilizador" />
                     </b-form-group>
                 </b-col>
                 <b-col md="6" sm="12">
@@ -16,7 +16,7 @@
                         <b-form-input id="user-email" type="text"
                             v-model="user.email" required
                             :readonly="mode === 'remove'"
-                            placeholder="Informe o E-mail do Utilizador..." />
+                            placeholder="Informe o E-mail do Utilizador" />
                     </b-form-group>
                 </b-col>
             </b-row>
@@ -29,7 +29,7 @@
                     <b-form-group label="Palavra-Passe:" label-for="user-password">
                         <b-form-input id="user-password" type="password"
                             v-model="user.password" required
-                            placeholder="Informe a Palavra-Passe do Utilizador..." />
+                            placeholder="Informe a Palavra-Passe do Utilizador" />
                     </b-form-group>
                 </b-col>
                 <b-col md="6" sm="12">
@@ -37,7 +37,7 @@
                         label-for="user-confirm-password">
                         <b-form-input id="user-confirm-password" type="password"
                             v-model="user.confirmPassword" required
-                            placeholder="Confirme a Palavra-Passe do Utilizador..." />
+                            placeholder="Confirme a Palavra-Passe do Utilizador" />
                     </b-form-group>
                 </b-col>
             </b-row>
